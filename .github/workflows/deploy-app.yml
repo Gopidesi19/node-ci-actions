@@ -1,0 +1,17 @@
+name: deploy-app
+
+on:
+ push:
+  branches:
+    - feature-deploy
+jobs:
+  deploy-app:
+   runs-on: ubuntu-latest
+   steps:
+     - name: step-1 checkout
+       uses: actions/checkout@v3
+     - name: run and test
+       uses: actions/setup-node@v4
+       with:
+        node-version: 20
+        run: npm install && npm test
